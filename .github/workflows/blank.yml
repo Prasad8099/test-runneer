@@ -18,7 +18,7 @@ jobs:
 
     - name: Decode kubeconfig
       run: |
-        echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > $HOME/.kube/config
+        echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > /home/runner/.kube/config
 
     - name: Deploy to Kubernetes
       run: |
