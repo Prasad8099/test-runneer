@@ -13,14 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-
-    - name: Decode kubeconfig
-      run: |
-        mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > /home/runner/.kube/config
-
     - name: Deploy to Kubernetes
       run: |
         kubectl get po 
